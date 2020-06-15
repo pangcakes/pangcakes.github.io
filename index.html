@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>>=[ -.-]</title>
+
+    <link rel="stylesheet" type="text/css" media="screen" href="css/home.css">
+</head>
+<body>
+    <div id="app">
+        <div class="main-grid" >
+            <div class="g-buttons">
+                  <button class="bg-color-main3" v-on:click="toggleDark()"></button>
+                  <button class="bg-color-main2"></button>
+            </div>
+
+            <div class="g-title">
+                  <h1 id="title"><a v-on:click="onTitleClicked()">{{title}}</a></h1>
+            </div>
+
+            <div class="g-navigation">
+                <div v-for="content in navigationContent">
+                    <a v-bind:class="{'color-selected':content==currentContent}" v-on:click="currentContent = content">{{content.name}}</a>
+                </div>
+            </div>
+              
+            <div class="g-content bg-color-main2">
+                <component v-bind:is="getContentComponent"></component>
+            </div>
+    
+            <div class="g-br1 bg-color-main2"></div>
+            <div class="g-br2 bg-color-main2"></div>
+        </div>
+    </div>
+
+    <script src="js/lib/vue.js"></script>
+    <script src="js/home.js"></script>
+</body>
+</html>

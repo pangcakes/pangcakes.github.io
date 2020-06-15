@@ -1,0 +1,137 @@
+
+:root {
+    --background-color: #efefef;
+    --header-color: #5fbb5f;
+    --main-color1: #60dd60;
+    --main-color2: #ff9999;
+    --main-color3: #313131;
+}
+
+.dark {
+    --background-color: #313131;
+    --header-color: #5fbb5f;
+    --main-color1: #60dd60;
+    --main-color2: #ff9999;
+    --main-color3: #efefef;
+}
+
+/* #region general */
+body {
+	background: var(--background-color);
+    font-family: 'Courier New', Courier, monospace;
+    transition: all 0.5s;
+}
+
+h1 {
+	margin: 0;
+	padding: 5px;
+
+	color: var(--header-color);
+	font-size: 68px;
+	font-weight: bolder;
+	text-align: center;
+}
+
+a {
+	text-decoration: none;
+	transition: all 0.3s;
+}
+
+a:hover {
+    color: var(--main-color2);
+    cursor: pointer;
+}
+
+a:active {
+    color: var(--main-color3);
+    transition: all 0.05s;
+}
+
+button {
+	padding: 0;
+	border: 0;
+	height: 50px;
+	width: 50px;
+    float: left;
+    border-radius: 25%;
+    transition: all 0.3s;
+}
+
+button:hover {
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+button:active {
+    background: var(--header-color);
+    border-radius: 50%;
+    transition: all 0.05s;
+}
+
+button:focus {
+	outline: none;
+}
+/* #endregion */
+
+.bg-color-main1 {
+    background: var(--main-color1);
+}
+
+.bg-color-main2 {
+    background: var(--main-color2);
+}
+
+.bg-color-main3 {
+    background: var(--main-color3);
+}
+
+.color-selected {
+    color: var(--main-color2);
+}
+
+/* #region main grid */
+.main-grid {
+    display: grid;
+    /* height: 100%; */
+    grid-template-columns: 10% 0.25fr 1fr 0.25fr 10%;
+    grid-template-rows: 50px auto 2px 1fr 2px 50px;
+    grid-template-areas: 
+        "buttons header header header ." 
+        ". header header header ." 
+        ". br1 br1 br1 ." 
+        ". nav main main ." 
+        ". br2 br2 br2 ." 
+        ". footer footer footer .";
+}
+
+.g-title { 
+    grid-area: header; 
+}
+
+.g-br1 { 
+    grid-area: br1;
+}
+
+.g-br2 { 
+    grid-area: br2;
+}
+
+.g-navigation {
+    grid-area: nav;
+    word-wrap: break-word;
+    font-size: 48px;
+	color: #60dd60;
+	text-transform: lowercase;
+
+}
+
+.g-content {
+    grid-area: main;
+    min-height: 512px;
+    color: var(--background-color);
+}
+
+.g-buttons {
+	grid-area: buttons;
+}
+/* #endregion */
